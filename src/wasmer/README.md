@@ -1,5 +1,9 @@
 # wasmer
 
+## C API
+
+<https://wasmerio.github.io/wasmer/c/>
+
 ## Rust
 
 <https://docs.wasmer.io/integrations/rust>
