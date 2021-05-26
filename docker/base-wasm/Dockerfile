@@ -39,7 +39,7 @@ RUN set -x && \
   make
 
 ENV LANG C.UTF-8
-ENV PATH /opt/wasi-sdk/bin:/opt/wasmer/bin:/opt/cmake/bin:$PATH
+ENV PATH /opt/wasi-sdk/bin:/opt/cmake/bin:$PATH
 
 # Rust
 # from: https://github.com/rust-lang/docker-rust/blob/master/1.52.1/buster/Dockerfile

@@ -1,14 +1,13 @@
 ARG REGISTRY
 FROM $REGISTRY/base-wasm
 
-ARG WASMTIME_VERSION=0.11.0
+ARG WASMTIME_VERSION=v0.26.1
 
-RUN set -x && \
-  # wasmtime
-  curl https://wasmtime.dev/install.sh -sSf | bash && \
-  apt-get remove --purge && \
-  apt-get autoremove -y && \
-  rm -rf /var/lib/apt/lists/* && \
-  echo 'PATH=/opt/wasmer/bin:$PATH' >> /etc/profile
+WORKDIR /usr/src/
 
-ENV PATH /opt/wasmer/bin:$PATH
+RUN git clone --recurse-submodules https://github.com/bytecodealliance/wasmtime.git
+
+WORKDIR /usr/src/wasmtime
+
+RUN git checkout $WASMTIME_VERSION && \
+  cargo build --release

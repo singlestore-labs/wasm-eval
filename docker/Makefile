@@ -2,7 +2,7 @@
 # https://philpep.org/blog/a-makefile-for-your-dockerfiles/
 
 VERSION = 1.0
-REGISTRY?=psy3.memcompute.com
+REGISTRY?=psy3.memcompute.com/launch-pad
 DOCKERFILES=$(shell find * -type f -name Dockerfile)
 NAMES=$(subst /,\:,$(subst /Dockerfile,,$(DOCKERFILES)))
 IMAGES=$(addprefix $(subst :,\:,$(REGISTRY))/,$(NAMES))
