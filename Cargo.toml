@@ -1,0 +1,19 @@
+[package]
+name = "wasm-bundler"
+version = "0.1.0"
+authors = ["bhayes"]
+edition = "2018"
+repository = "https://github.com/ricochet/wasm-bundler"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+wasmer = "1.0"
+
+[features]
+#default = ["wasm3"]
+#wasmtime = ["wasmcloud-host/wasmtime"]
+#wasm3 = ["wasmcloud-host/wasm3"]
+
+[badges]
+maintenance = {status = "experimental"}
