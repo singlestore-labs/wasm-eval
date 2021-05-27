@@ -20,7 +20,8 @@ RUN set -x && \
   git \
   ninja-build && \
   # cleanup
-  apt-get clean && \
+  apt-get -y clean  && \
+  apt-get autoremove --purge  -y && \
   rm -rf /var/lib/apt/lists/* && \
   # cmake
   wget -qO- "https://cmake.org/files/v3.20/cmake-3.20.0-linux-x86_64.tar.gz" | tar --strip-components=1 -xz -C /usr/local
