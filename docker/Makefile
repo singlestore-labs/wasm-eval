@@ -9,7 +9,7 @@ IMAGES=$(addprefix $(subst :,\:,$(REGISTRY))/,$(NAMES))
 DEPENDS=.depends.mk
 MAKEFLAGS += -rR
 
-.PHONY: all clean push pull run exec check checkrebuild pull-base ci $(NAMES) $(IMAGES)
+.PHONY: all clean push pull run exec check checkrebuild lint pull-base ci $(NAMES) $(IMAGES)
 
 all: $(IMAGES)
 clean:
@@ -17,10 +17,10 @@ clean:
 
 pull-base:
 	# used by base-wasm
-	docker pull $(REGISTRY)/debian:stretch
+	docker pull $(REGISTRY)/debian:buster
 
 ci:
-	$(MAKE) pull-base checkrebuild push all
+	$(MAKE) pull-base checkrebuild lint push all
 
 .PHONY: $(DEPENDS)
 $(DEPENDS): $(DOCKERFILES)
@@ -54,6 +54,12 @@ ifeq (checkrebuild,$(filter checkrebuild,$(MAKECMDGOALS)))
 	./check_update.sh $(REGISTRY)/$@ || \
 	(docker build --no-cache -t $(REGISTRY)/$@ $(subst :,/,$@) && ./check_update.sh $(REGISTRY)/$@)
 endif
+
+$(NAMES): %:
+ifeq (lint,$(filter lint,$(MAKECMDGOALS)))
+	docker run --rm -i psy3.memcompute.com/launch-pad/hadolint:v2.4 < $@/Dockerfile
+endif
+
 
 help:
 	@echo "Makefile for building dockerfiles"

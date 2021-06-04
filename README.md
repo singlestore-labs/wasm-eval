@@ -1,7 +1,7 @@
 # WASM Runtime Evaluator
 
 Curious how to use the various runtimes and what the performance
-characteristics for each runtime?
+characteristics for each runtime? Try this comparison tool.
 
 ## Evaluation
 
