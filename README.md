@@ -10,6 +10,7 @@ characteristics for each runtime? Try this comparison tool.
 - Runtime performance
 - Memory usage
 - Runs on embeddable devices?
+- Run https://github.com/caspervonb/wasi-test-suite
 
 ## Test
 
@@ -33,3 +34,33 @@ const PRIMITIVES: &[&str] = &[
 
 - <https://webassembly.studio/>
 - <https://mbebenita.github.io/WasmExplorer/>
+
+
+WASM is language independent. This is designed for benchmarks from multiple languages.
+
+Not validating outputs
+
+Improper scoring
+(e.g. overweighting microbenchmarks)
+
+Improper workloads
+(e.g. time-dependent)
+
+⇒ Measure the wrong thing ⇒ Optimize the wrong thing
+
+Categories of benchmarks:
+- Microbenchmarks: synthetic numeric, memory accesses, table operations, mem copy, fill, compile time, instatiate time
+- Kernels
+- Applications
+
+http://kripken.github.io/Massive/
+
+PolyBenchC (written in C)
+
+http://web.cse.ohio-state.edu/~pouchet.2/software/polybench/
+
+Ostrich Benchmark
+
+
+Applications: AI/ML focus
+

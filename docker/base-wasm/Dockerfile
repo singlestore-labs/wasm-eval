@@ -15,6 +15,8 @@ RUN set -x && \
   git \
   ca-certificates \
   build-essential \
+  libprotoc-dev \
+  protobuf-compiler \
   clang \
   python3 \
   git \
@@ -66,4 +68,6 @@ RUN set -eux; \
   chmod -R a+w $RUSTUP_HOME $CARGO_HOME; \
   rustup --version; \
   cargo --version; \
-  rustc --version;
+  rustc --version; \
+  # A code size profiler for wasm
+  cargo install twiggy

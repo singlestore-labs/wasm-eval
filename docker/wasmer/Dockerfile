@@ -11,3 +11,5 @@ RUN set -x && \
   echo 'PATH=/opt/wasmer/bin:$PATH' >> /etc/profile
 
 ENV PATH /opt/wasmer/bin:$PATH
+ENV WASMER_DIR /opt/wasmer
+ENV LD_LIBRARY_PATH $WASMER_DIR/lib/:$LD_LIBRARY_PATH

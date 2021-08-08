@@ -1,0 +1,21 @@
+tqdm==4.61.0
+numpy==1.20.3
+matplotlib==3.4.2
+# tensorflow==2.5.0
+torch==1.8.1
+torchvision==0.9.1
+torchtext==0.9.1
+awscli==1.16.35
+flask==2.0.1
+pandas==1.2.4
+requests==2.25.1
+pylint==2.8.3
+
+## keras
+# keras==2.1.6
+# keras2onnx
+
+## onnx
+onnx==1.9.0
+onnxruntime==1.8.0
+onnx-coreml==1.3
